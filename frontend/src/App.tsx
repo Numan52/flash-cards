@@ -9,6 +9,7 @@ import { AuthProvider } from './Context/AuthProvider'
 import Profile from './Components/Profile'
 import useAuth from './Hooks/useAuth'
 import PersistLogin from './Components/PersistLogin'
+import ScenarioSettings from './Components/ScenarioSettings'
 
 function App() {
   
@@ -19,7 +20,7 @@ function App() {
     <BrowserRouter>
       
       <Routes>
-       
+
 
 
         <Route element={<PersistLogin />}>
@@ -32,13 +33,12 @@ function App() {
               </ProtectedRoute>
               
             } >
-
-           
+  
           </Route>
         </Route>
         
+        <Route path='/scenario-settings/:scenarioId' element={<ScenarioSettings /> } />  
 
-      
 
         <Route path='/login' element={auth.jwt ? <Navigate to={"/"} replace/> : <Login />} />  
         <Route path='/register' element={auth.jwt ? <Navigate to={"/"} replace/> : <Register />}/>  

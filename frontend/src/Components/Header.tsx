@@ -5,7 +5,7 @@ const Header = () => {
   const navigate = useNavigate()
 
   return (
-    <header className='flex justify-between h-10 items-center ml-7 mr-7 mt-2 text-lg font-'>
+    <div className='flex justify-between h-10 items-center ml-7 mr-7 mt-2 text-lg font-'>
         <div className='flex gap-10 items-center'>
             <nav>
                 <ul className='flex gap-4'>
@@ -27,7 +27,7 @@ const Header = () => {
             <button onClick={() => navigate("/login")} className='hover:cursor-pointer border-0 rounded-2xl bg-blue-200 px-5 py-2 text-black'>Log in</button>
             <button onClick={() => navigate("/register")} className='hover:cursor-pointer border-0 rounded-2xl bg-green-200 px-5 py-2 text-black'>Get Started</button>
         </div>
-    </header>   
+    </div>   
   )
 }
 
