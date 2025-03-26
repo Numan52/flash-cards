@@ -31,7 +31,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private JwtAuthenticationProvider jwtAuthenticationProvider;
 
     private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
-    private static final Set<String> EXCLUDED_PATHS = Set.of("/auth/login", "/auth/register", "/auth/new-token");
+    private static final Set<String> EXCLUDED_PATHS = Set.of
+            (
+                    "/auth/login",
+                    "/auth/register",
+                    "/auth/new-token",
+                    "/chats/message"
+            );
 
 
     @Autowired

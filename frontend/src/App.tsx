@@ -10,6 +10,9 @@ import Profile from './Components/Profile'
 import useAuth from './Hooks/useAuth'
 import PersistLogin from './Components/PersistLogin'
 import ScenarioSettings from './Components/ScenarioSettings'
+import Scenario from './Components/Game'
+import Game from './Components/Game'
+
 
 function App() {
   
@@ -38,6 +41,7 @@ function App() {
         </Route>
         
         <Route path='/scenario-settings/:scenarioId' element={<ScenarioSettings /> } />  
+        <Route path='/scenarios/:scenarioId/:gameId' element={<Game /> } />  
 
 
         <Route path='/login' element={auth.jwt ? <Navigate to={"/"} replace/> : <Login />} />  

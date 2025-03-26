@@ -18,7 +18,7 @@ type AiPersonality = "serious" | "shy" | "flirty";
 const ScenarioSettings = () => {
   const { scenarioId } = useParams();
   const [isTrainingMode, setIsTrainingMode] = useState(true)
-  const [aiPersonality, setAiPersonality] = useState<AiPersonality>("playful")
+  const [aiPersonality, setAiPersonality] = useState<AiPersonality>("flirty")
   const navigate = useNavigate()
 
   const scenario: Scenario | undefined = scenarios.find(scenario => scenario.id === scenarioId)
@@ -29,8 +29,9 @@ const ScenarioSettings = () => {
     return
   }
 
-  function onStartScenario(event): void {
-    navigate(`/scenarios/${scenarioId}`)
+  function onStartScenario(): void {
+    const gameId = crypto.randomUUID()
+    navigate(`/scenarios/${scenarioId}/${gameId}`)
   }
 
   return (

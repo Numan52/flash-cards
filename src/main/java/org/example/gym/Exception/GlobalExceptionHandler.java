@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
+import java.util.NoSuchElementException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -21,6 +22,15 @@ public class GlobalExceptionHandler {
         logger.error("Exception: ", e);
         return ResponseEntity.status(500).body(new ExceptionDto(
                 request.getServletPath(), "Unexpected Error occurred", 500, LocalDateTime.now()
+        ));
+    }
+
+
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<?> handleNoSuchElementException(Exception e, HttpServletRequest request) {
+        logger.error("Exception: ", e);
+        return ResponseEntity.status(404).body(new ExceptionDto(
+                request.getServletPath(), e.getMessage(), 404, LocalDateTime.now()
         ));
     }
 
